@@ -30,10 +30,10 @@ function speak(){
 
 function setup() {
   createCanvas(400, 400);
+  background("lavender");
 }
 
 function draw() {
-  background(220);
   if (b==circle){
     circle(x,y,radius)
   }
