@@ -1,40 +1,38 @@
-let x,y;
-let b=0;
-let flag=0;
-var SpeechRecognition=window.webkitSpeechRecognition;
-var recognition=new SpeechRecognition;
+let x, y;
+let b = 0;
+let flag = 0;
+var SpeechRecognition = window.webkitSpeechRecognition;
+var recognition = new SpeechRecognition;
 
-function listening(){
-  document.getElementById('status').innerHTML="Listening....Speak now!";
+function listening() {
+  document.getElementById('status').innerHTML = "Listening....Speak now!";
   speak();
   recognition.start();
-  recognition.onresult=function(event){
+  recognition.onresult = function (event) {
     console.log(event);
-    var a=event.results[0][0].transcript.toLowerCase();
-    document.getElementById("status").innerHTML="You said: "+ a;
+    var a = event.results[0][0].transcript.toLowerCase();
+    document.getElementById("status").innerHTML = "You said: " + a;
     if (a.includes("circle")) {
-        b="Circle";
-        x=Number(prompt("x=?"));
-        y=Number(prompt("y=?"));
-        radius=Number(prompt("radius=?"));
-        flag=0;
+      b = "Circle";
+      x = Number(prompt("x=?"));
+      y = Number(prompt("y=?"));
+      radius = Number(prompt("radius=?"));
+      flag = 0;  // Reset the flag after shape input is accepted
     }
-    else if (flag==0){
-      var synthI=window.speechSynthesis;
-      var utterThisI=new SpeechSynthesisUtterance("You have to tell shape name and enter required values:");
+    else if (flag == 0) {
+      var synthI = window.speechSynthesis;
+      var utterThisI = new SpeechSynthesisUtterance("You have to tell shape name and enter required values:");
       synthI.speak(utterThisI);
-      flag=1;
-    } 
+      flag = 1; // Flag set to 1 after speaking the prompt
+    }
   }
 }
 
-function speak(){
-  var synth=window.speechSynthesis;
-  var utterThis=new SpeechSynthesisUtterance("Tell the shape you want to draw and write the values");
+function speak() {
+  var synth = window.speechSynthesis;
+  var utterThis = new SpeechSynthesisUtterance("Tell the shape you want to draw and write the values");
   synth.speak(utterThis);
 }
-
-
 
 function setup() {
   createCanvas(400, 400);
@@ -42,8 +40,8 @@ function setup() {
 }
 
 function draw() {
-  if (b=="Circle"){
-    circle(x,y,radius);
-    b=0;
+  if (b == "Circle") {
+    circle(x, y, radius);
+    b = 0;
   }
 }
