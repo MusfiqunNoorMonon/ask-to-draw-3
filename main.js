@@ -1,5 +1,6 @@
 let x,y;
 let b=0;
+let flag=0;
 var SpeechRecognition=window.webkitSpeechRecognition;
 var recognition=new SpeechRecognition;
 
@@ -16,11 +17,13 @@ function listening(){
         x=Number(prompt("x=?"));
         y=Number(prompt("y=?"));
         radius=Number(prompt("radius=?"));
+        flag=0;
     }
-    else{
+    else if (flag==0){
       var synthI=window.speechSynthesis;
       var utterThisI=new SpeechSynthesisUtterance("You have to tell shape name and enter required values:");
       synthI.speak(utterThisI);
+      flag=1;
     } 
   }
 }
