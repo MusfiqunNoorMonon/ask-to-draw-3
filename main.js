@@ -30,7 +30,7 @@ function speak(){
 
 function setup() {
   createCanvas(400, 400);
-  background("lavender");
+  background("purple");
 }
 
 function draw() {
