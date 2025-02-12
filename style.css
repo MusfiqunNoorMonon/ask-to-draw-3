@@ -1,0 +1,12 @@
+body{
+	font-family: cursive;
+	background: lavender;
+}
+button{
+	font-family: sans-serif;
+}
+canvas{
+	display: block;
+	margin: 20px auto;
+	border-radius: 20px;
+}
