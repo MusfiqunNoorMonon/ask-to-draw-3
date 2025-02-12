@@ -1,6 +1,5 @@
 let x,y;
 let b=0;
-let speechgiven=0;
 var SpeechRecognition=window.webkitSpeechRecognition;
 var recognition=new SpeechRecognition;
 
@@ -38,12 +37,10 @@ function draw() {
   if (b=="Circle"){
     circle(x,y,radius);
     b=0;
-    speechgiven=0;
   }
-  else if (speechgiven==0){
+  else{
     var synthI=window.speechSynthesis;
-    var utterThisI=new SpeechSynthesisUtterance("You should Enter a number and you have to tell shape name");
+    var utterThisI=new SpeechSynthesisUtterance("You have to tell shape name and enter required values:");
     synthI.speak(utterThisI);
-    speechgiven=1;
   }
 }
