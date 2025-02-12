@@ -16,6 +16,11 @@ function listening(){
         x=Number(prompt("x=?"));
         y=Number(prompt("y=?"));
         radius=Number(prompt("radius=?"));
+    }
+    else{
+      var synthI=window.speechSynthesis;
+      var utterThisI=new SpeechSynthesisUtterance("You have to tell shape name and enter required values:");
+      synthI.speak(utterThisI);
     } 
   }
 }
@@ -37,10 +42,5 @@ function draw() {
   if (b=="Circle"){
     circle(x,y,radius);
     b=0;
-  }
-  else{
-    var synthI=window.speechSynthesis;
-    var utterThisI=new SpeechSynthesisUtterance("You have to tell shape name and enter required values:");
-    synthI.speak(utterThisI);
   }
 }
